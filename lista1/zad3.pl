@@ -1,39 +1,14 @@
-above(bicycle, pencil).
-above(camera, butterfly).
+is_composite(X, Y) :-
+    X mod Y =:= 0.
 
-above_rec(Block1, Block2) :-
-    above(Block1, Block2).
-above_rec(Block1, Block3) :-
-    above(Block1, Block2), 
-    above_rec(Block2, Block3).
+is_composite(X, Y) :-
+    Y * Y + 2 * Y + 1 =< X,
+    is_composite(X, Y + 1).
 
-left_of(pencil, sandglass).
-left_of(sandglass, butterfly).
-left_of(butterfly, fish).
+is_prime(X) :-
+    X > 1,
+    \+ is_composite(X, 2).
 
-left_of_rec(Block1, Block2) :-
-    left_of(Block1, Block2).
-left_of_rec(Block1, Block3) :-
-    left_of(Block1, Block2), 
-    left_of_rec(Block2, Block3).
-
-right_of(Object1, Object2) :-
-    left_of(Object2, Object1).
-
-below(Object1, Object2) :-
-    above(Object2, Object1).
-
-right_of_rec(Object1, Object2) :-
-    left_of_rec(Object2, Object1).
-
-below_rec(Object1, Object2) :-
-    above_rec(Object2, Object1).
-
-higher(Object1, Object2) :-
-    above_rec(Object1, Object2).
-higher(Object1, Object2) :-
-    above_rec(Object1, Object3), 
-    left_of_rec(Object2, Object3). 
-higher(Object1, Object2) :- 
-    above_rec(Object1, Object3), 
-    right_of_rec(Object2, Object3).
+prime(LO, HI, N) :-
+    between(LO, HI, N),
+    is_prime(N).
