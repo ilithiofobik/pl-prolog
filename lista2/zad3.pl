@@ -3,7 +3,13 @@ arc(b, a).
 arc(b, c).
 arc(c, d).
 
-osiągalny(X, X).
-osiągalny(X, Z) :-
-    arc(X, Y),
-    osiągalny(Y, Z).
+os(A, A, []).
+
+os(X, Y, V) :-
+    arc(X, Z),
+    \+ member(Z, V),
+    (Y = Z;
+    os(Z, Y, [X | V])).
+
+osiągalny(X, Y) :-
+    os(X, Y, []).

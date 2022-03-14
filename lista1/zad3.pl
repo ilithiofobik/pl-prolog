@@ -3,7 +3,8 @@ is_composite(X, Y) :-
 
 is_composite(X, Y) :-
     Y * Y + 2 * Y + 1 =< X,
-    is_composite(X, Y + 1).
+    Z is Y + 1,
+    is_composite(X, Z).
 
 is_prime(X) :-
     X > 1,
