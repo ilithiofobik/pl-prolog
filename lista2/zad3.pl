@@ -4,7 +4,6 @@ arc(b, c).
 arc(c, d).
 
 os(A, A, []).
-
 os(X, Y, V) :-
     arc(X, Z),
     \+ member(Z, V),
