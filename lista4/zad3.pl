@@ -6,8 +6,8 @@ small(Counter, Match) :-
     ((union(Match4, [9, 12, 13, 16], Match5), Count5 is Count4 + 1) ; (Match5 = Match4, Count5 = Count4)), 
     ((union(Match5, [10, 13, 14, 17], Match6), Count6 is Count5 + 1) ; (Match6 = Match5, Count6 = Count5)), 
     ((union(Match6, [15, 18, 19, 22], Match7), Count7 is Count6 + 1) ; (Match7 = Match6, Count7 = Count6)), 
-    ((union(Match7, [16, 19, 20, 23], R8), Counter8 is Count7 + 1) ; (R8 = Match7, Counter8 = Count7)), 
-    ((union(R8, [17, 20, 21, 24], Match), Counter is Counter8 + 1) ; (Match = R8, Counter = Counter8)).
+    ((union(Match7, [16, 19, 20, 23], Match8), Counter8 is Count7 + 1) ; (Match8 = Match7, Counter8 = Count7)), 
+    ((union(Match8, [17, 20, 21, 24], Match), Counter is Counter8 + 1) ; (Match = Match8, Counter = Counter8)).
 
 medium(Base, Counter, Match) :-
     Sq1 = [1, 2, 4, 6, 11, 13, 15, 16], 

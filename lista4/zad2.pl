@@ -1,13 +1,13 @@
 left(X, Y, [X, Y | _]).
-left(X, Y, [_ | Z]):-
+left(X, Y, [_ | Z]) :-
     left(X, Y, Z).
 
-next_to(X, Y, List):-
+next_to(X, Y, List) :-
     left(X, Y, List).
-next_to(X, Y, List):-
+next_to(X, Y, List) :-
     left(Y, X, List).
 
-rybki(Kto):-
+rybki(Kto) :-
     Domy = [[1, _, norweg, _, _, _],
             [2, _, _, _, _, _],
             [3, _, _, _, mleko, _],
